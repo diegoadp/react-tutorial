@@ -6,9 +6,10 @@ const TableHeader = () => {
             <tr>
                 <th>Name</th>
                 <th>Job</th>
+                <th>Remove</th>
             </tr>
         </tread>
-    )
+    );
 }
 
 const TableBody = (props) => {
@@ -20,23 +21,21 @@ const TableBody = (props) => {
                 <td>{row.job}</td>
                 <td><button onClick={() => props.removeCharacter(index)}>Delete</button></td>
             </tr>
-        )
-    })
-    return <tbody>{rows}</tbody>
+        );
+    });
+    return <tbody>{rows}</tbody>;
 }
 
 
 const Table = (props) => {
-    // const { characterData, removeCharacter } = props
-    const characterData = props.characterData
-    const removeCharacter = props.removeCharacter
+    const { characterData, removeCharacter } = props; // Study - Destructuring assignment
 
     return (
         <table>
             <TableHeader />
             <TableBody characterData={characterData} removeCharacter={removeCharacter} />
         </table>
-    )
+    );
 }
 
 export default Table
